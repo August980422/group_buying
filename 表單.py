@@ -64,7 +64,7 @@ def parse_orders(text: str) -> dict[str, object]:
         if current is not None:
             _store_qty(buyers, current, line)
 
-    return buyers
+    return dict(buyers)
 
 def _store_qty(buyers, name, line):
     if RE_PURE_NUM.match(line) and not RE_ANY_LETTER_PLUS.search(line):
@@ -198,6 +198,8 @@ class App(tk.Tk):
             self.tree.insert("", "end", values=list(row))
 
     def _export_df(self) -> pd.DataFrame:
+        if self.df_display is None:
+            raise ValueError("No DataFrame to export.")
         df = self.df_display.copy()
         df.insert(0, 'Unnamed: 0', '')
         df.rename(columns={'姓名': 'Unnamed: 1'}, inplace=True)
