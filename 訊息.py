@@ -178,7 +178,7 @@ class OrderMessageGenerator(ctk.CTkFrame):
                     item_price_str = "無價格"
                 else:
                     try:
-                        numeric_price = float(raw_price)
+                        numeric_price = float(str(raw_price))
                         if numeric_price.is_integer():
                             numeric_price = int(numeric_price)
                             item_price_str = str(numeric_price)
