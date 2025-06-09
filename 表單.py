@@ -19,13 +19,13 @@ DEFAULT_FONT_SIZE   = 14                # Adjust font size here
 APP_FONT = (DEFAULT_FONT_FAMILY, DEFAULT_FONT_SIZE)
 
 # ── Regular expressions ─────────────────────────────────────────────
-RE_NAME_PLUS = re.compile(r'^([\u4e00-\u9fa5\u00C0-\u024F A-Za-z\s·\._-]+?)\s+\+\s*([0-9]+)\s*$')
+RE_NAME_PLUS = re.compile(r'^([\u4e00-\u9fa5\u00C0-\u024F A-Za-z\s·\._-]+?)\s*[\+\*]\s*([0-9]+)\s*$')
 RE_NAME_LINE = re.compile(r'^[\u4e00-\u9fa5\u00C0-\u024F A-Za-z\s·\._-]+$')
 RE_PURE_NUM    = re.compile(r'^\s*\+?\s*([0-9]+)\s*$')
-RE_ANY_LETTER_PLUS = re.compile(r'[A-Za-z]\s*\+\s*\d+')
+RE_ANY_LETTER_PLUS = re.compile(r'[A-Za-z]\s*[\+\*]\s*\d+')
 RE_TIME        = re.compile(r'^\d+\s*(天|日|週|周|小時|分鐘)$')
 NOISE_WORDS    = {"回覆", "翻譯年糕"}
-RE_STR_QTY     = re.compile(r'^(.*?)(?:\s*)\+\s*(\d+)$')        # Generic “string+qty”
+RE_STR_QTY     = re.compile(r'^(.*?)(?:\s*)[\+\*]\s*(\d+)$')        # Generic “string+qty”
 
 # ── Sort keys ───────────────────────────────────────────────────────
 def buyer_key(name: str):
